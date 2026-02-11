@@ -26,22 +26,22 @@ EOT
   type = map(object({
     name                                    = string
     namespace_id                            = string
-    requires_duplicate_detection            = optional(bool, false)
-    partitioning_enabled                    = optional(bool, false)
+    requires_duplicate_detection            = optional(bool) # Default: false
+    partitioning_enabled                    = optional(bool) # Default: false
     max_size_in_megabytes                   = optional(number)
     max_message_size_in_kilobytes           = optional(number)
-    max_delivery_count                      = optional(number, 10)
-    lock_duration                           = optional(string, "PT1M")
+    max_delivery_count                      = optional(number) # Default: 10
+    lock_duration                           = optional(string) # Default: "PT1M"
     forward_to                              = optional(string)
     forward_dead_lettered_messages_to       = optional(string)
-    express_enabled                         = optional(bool, false)
-    duplicate_detection_history_time_window = optional(string, "PT10M")
+    express_enabled                         = optional(bool)   # Default: false
+    duplicate_detection_history_time_window = optional(string) # Default: "PT10M"
     default_message_ttl                     = optional(string)
-    dead_lettering_on_message_expiration    = optional(bool, false)
-    batched_operations_enabled              = optional(bool, true)
+    dead_lettering_on_message_expiration    = optional(bool) # Default: false
+    batched_operations_enabled              = optional(bool) # Default: true
     auto_delete_on_idle                     = optional(string)
-    requires_session                        = optional(bool, false)
-    status                                  = optional(string, "Active")
+    requires_session                        = optional(bool)   # Default: false
+    status                                  = optional(string) # Default: "Active"
   }))
 }
 
